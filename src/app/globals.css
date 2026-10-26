@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #faf9f6;
+  --color-tertiary-container: #86a383;
+  --color-surface-container-low: #f4f3f1;
+  --color-outline-variant: #dac0c3;
+  --color-inverse-primary: #ffb2be;
+  --color-on-primary: #ffffff;
+  --color-secondary-container: #fec97b;
+  --color-outline: #877274;
+  --color-on-primary-fixed-variant: #7e273d;
+  --color-inverse-surface: #2f312f;
+  --color-secondary-fixed: #ffddb1;
+  --color-tertiary-fixed-dim: #b0cfad;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-secondary-container: #78520e;
+  --color-on-tertiary: #ffffff;
+  --color-surface-container-highest: #e3e2e0;
+  --color-on-primary-container: #64132b;
+  --color-on-tertiary-fixed-variant: #334d33;
+  --color-on-surface-variant: #554245;
+  --color-on-error: #ffffff;
+  --color-on-surface: #1a1c1a;
+  --color-on-tertiary-fixed: #07200b;
+  --color-surface-tint: #9c3e54;
+  --color-on-secondary-fixed-variant: #614000;
+  --color-surface-container-high: #e9e8e5;
+  --color-surface: #faf9f6;
+  --color-on-tertiary-container: #203921;
+  --color-on-secondary: #ffffff;
+  --color-surface-dim: #dbdad7;
+  --color-primary-fixed: #ffd9de;
+  --color-surface-variant: #e3e2e0;
+  --color-tertiary-fixed: #ccebc7;
+  --color-primary-container: #e87a90;
+  --color-tertiary: #4a6549;
+  --color-surface-container: #efeeeb;
+  --color-error-container: #ffdad6;
+  --color-secondary-fixed-dim: #f2be71;
+  --color-error: #ba1a1a;
+  --color-on-error-container: #93000a;
+  --color-surface-bright: #faf9f6;
+  --color-on-primary-fixed: #3f0015;
+  --color-on-background: #1a1c1a;
+  --color-primary-fixed-dim: #ffb2be;
+  --color-secondary: #7e5713;
+  --color-primary: #9c3e54;
+  --color-inverse-on-surface: #f1f1ee;
+  --color-on-secondary-fixed: #291800;
+
+  --spacing-space-xl: 2.5rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-margin: 3rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-margin-mobile: 1.25rem;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+    background-color: #faf9f6;
+    color: #1a1c1a;
+    font-family: var(--font-plus-jakarta-sans), sans-serif;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Material Symbols Outlined Icon Font */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography helper classes matching index.html font and text definitions */
+.font-headline-lg, .font-headline-md, .font-headline-sm, .font-display-lg, .font-headline-lg-mobile, .font-display-lg-mobile {
+  font-family: var(--font-playfair-display), 'Playfair Display', serif;
+}
+
+.font-body-lg, .font-body-md, .font-body-sm, .font-title-lg, .font-title-md, .font-label-lg, .font-label-md, .font-label-sm {
+  font-family: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-cursive {
+  font-family: 'Dancing Script', 'Alex Brush', cursive, sans-serif !important;
+}
+
+.font-date-serif {
+  font-family: 'Cormorant Garamond', 'Cormorant Upright', 'Playfair Display', Georgia, serif !important;
+}
+
+.text-label-lg {
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.text-headline-lg {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.text-body-md {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.005em;
+  font-weight: 400;
+}
+
+.text-title-lg {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-label-md {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.text-title-md {
+  font-size: 17px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.text-headline-md {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.text-headline-sm {
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: 0.005em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.text-display-lg {
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.text-headline-lg-mobile {
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.text-label-sm {
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.text-display-lg-mobile {
+  font-size: 38px;
+  line-height: 46px;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.text-body-sm {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+/* Vinyl rotation animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+/* Wedding rings 3D turntable & continuous rotation animation */
+@keyframes ring-spin-3d {
+  0% {
+    transform: perspective(600px) rotateX(10deg) rotate(0deg);
+  }
+  100% {
+    transform: perspective(600px) rotateX(10deg) rotate(360deg);
+  }
+}
+
+@keyframes diamond-sparkle {
+  0%, 100% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+.animate-ring-rotate {
+  animation: ring-spin-3d 16s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-diamond-sparkle {
+  animation: diamond-sparkle 2.4s ease-in-out infinite;
+  transform-origin: center center;
+}
+

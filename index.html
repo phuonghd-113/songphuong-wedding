@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="vi" style="">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_standard" name="shell-type">
+  <title>Hà Phương &amp; Mai Phương • Lễ Đính Hôn Music Player</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "background": "#faf9f6", "tertiary-container": "#86a383", "surface-container-low": "#f4f3f1", "outline-variant": "#dac0c3", "inverse-primary": "#ffb2be", "on-primary": "#ffffff", "secondary-container": "#fec97b", "outline": "#877274", "on-primary-fixed-variant": "#7e273d", "inverse-surface": "#2f312f", "secondary-fixed": "#ffddb1", "tertiary-fixed-dim": "#b0cfad", "surface-container-lowest": "#ffffff", "on-secondary-container": "#78520e", "on-tertiary": "#ffffff", "surface-container-highest": "#e3e2e0", "on-primary-container": "#64132b", "on-tertiary-fixed-variant": "#334d33", "on-surface-variant": "#554245", "on-error": "#ffffff", "on-surface": "#1a1c1a", "on-tertiary-fixed": "#07200b", "surface-tint": "#9c3e54", "on-secondary-fixed-variant": "#614000", "surface-container-high": "#e9e8e5", "surface": "#faf9f6", "on-tertiary-container": "#203921", "on-secondary": "#ffffff", "surface-dim": "#dbdad7", "primary-fixed": "#ffd9de", "surface-variant": "#e3e2e0", "tertiary-fixed": "#ccebc7", "primary-container": "#e87a90", "tertiary": "#4a6549", "surface-container": "#efeeeb", "error-container": "#ffdad6", "secondary-fixed-dim": "#f2be71", "error": "#ba1a1a", "on-error-container": "#93000a", "surface-bright": "#faf9f6", "on-primary-fixed": "#3f0015", "on-background": "#1a1c1a", "primary-fixed-dim": "#ffb2be", "secondary": "#7e5713", "primary": "#9c3e54", "inverse-on-surface": "#f1f1ee", "on-secondary-fixed": "#291800" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter": "1.5rem", "margin": "3rem", "gutter-mobile": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "margin-mobile": "1.25rem" }, "fontFamily": { "label-lg": ["Plus Jakarta Sans"], "headline-lg": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"], "headline-sm": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"], "display-lg": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"], "label-sm": ["Plus Jakarta Sans"], "display-lg-mobile": ["Playfair Display"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.005em", "fontWeight": "400" }], "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }], "title-md": ["17px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "0", "fontWeight": "500" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0.005em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "400" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }], "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "0", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "600" }], "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }] } } } }</script>
+</head>
+
+<body class="bg-background font-body-md text-on-surface antialiased">
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(212,163,89,0.06)]">
+    <div
+      class="h-20 w-full px-6 lg:px-8 max-w-7xl mx-auto flex items-center justify-between gap-4 border-b border-surface-container-high/80">
+      <div class="flex items-center gap-3 shrink-0">
+        <div
+          class="w-10 h-10 rounded-full bg-gradient-to-tr from-secondary-fixed/50 via-primary-fixed/40 to-surface-container-lowest flex items-center justify-center shadow-sm border border-white/60 shrink-0">
+          <span class="material-symbols-outlined text-primary text-[20px]">favorite</span></div>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-2"><span
+              class="font-headline-sm text-[18px] text-on-surface font-semibold tracking-tight truncate">Hà Phương &amp;
+              Mai Phương</span><span
+              class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 font-label-sm text-secondary font-semibold uppercase tracking-wider text-[10px] shrink-0">LỄ
+              ĐÍNH HÔN</span></div>
+          <p class="font-label-md text-on-surface-variant flex items-center gap-1.5 text-xs truncate"><span
+              class="material-symbols-outlined text-[13px] text-secondary shrink-0">library_music</span><span
+              class="truncate">Hệ Thống Điều Khiển Âm Nhạc Lễ Đính Hôn</span></p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-3 shrink-0">
+        <nav
+          class="flex items-center p-1 bg-surface-container-low/90 rounded-full border border-surface-container-high/60 shadow-inner">
+          <a class="px-3.5 py-1.5 rounded-full font-label-lg text-xs bg-surface-container-lowest text-primary font-bold shadow-sm flex items-center gap-1.5 transition-all shrink-0"
+            data-path="timeline-player" href="#"><span
+              class="material-symbols-outlined text-[16px]">queue_music</span><span class="">Phát Nhạc Theo Giai
+              Đoạn</span></a><a
+            class="px-3.5 py-1.5 rounded-full font-label-lg text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-all flex items-center gap-1.5 shrink-0"
+            data-path="stage-display" href="#"><span class="material-symbols-outlined text-[16px]">tv</span><span
+              class="">Màn Hình Sân Khấu LED</span></a></nav>
+        <div
+          class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-tertiary-fixed/40 border border-tertiary/20 text-on-tertiary-fixed-variant shrink-0">
+          <span class="relative flex h-2 w-2"><span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span
+              class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span
+            class="font-label-md font-semibold text-xs tracking-wide truncate">Đang phát: Giai Đoạn 02 - Nghi Lễ</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <div
+          class="flex items-center gap-2.5 px-3 py-1.5 bg-surface-container-low/90 rounded-xl border border-surface-container-high/60 shadow-sm">
+          <span class="material-symbols-outlined text-primary text-[18px]">volume_up</span><input
+            class="w-18 md:w-20 h-1.5 accent-primary bg-surface-container-high rounded-full cursor-pointer" max="100"
+            min="0" type="range" value="78"><button
+            class="px-2 py-0.5 rounded-md bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] font-semibold border border-surface-container-high transition-colors shadow-2xs"
+            type="button">Mute</button></div><button
+          class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-low/90 hover:bg-secondary-fixed/40 text-on-surface font-label-md text-xs font-semibold border border-surface-container-high/60 transition-colors shadow-sm shrink-0"
+          title="Toàn màn hình sân khấu" type="button"><span
+            class="material-symbols-outlined text-[17px] text-secondary">fullscreen</span><span
+            class="hidden xl:inline">Toàn Màn Hình</span></button>
+        <div
+          class="w-9 h-9 rounded-full bg-primary-fixed/40 text-primary border border-primary/20 flex items-center justify-center font-bold text-xs shadow-xs shrink-0">
+          <span class="material-symbols-outlined text-[18px]">admin_panel_settings</span></div>
+      </div>
+    </div>
+  </header>
+  <main class="w-full pt-20 bg-background min-h-screen">
+    <div class="flex flex-col w-full">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <!-- BANNER TRẠNG THÁI HÔN LỄ & GIAI ĐOẠN ĐANG PHÁT -->
+        <div
+          class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-[0_10px_35px_rgba(212,163,89,0.08)] relative overflow-hidden">
+          <div
+            class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none">
+          </div>
+          <div
+            class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-primary-fixed/40 blur-3xl pointer-events-none">
+          </div>
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-3">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-container font-label-md text-label-md font-semibold tracking-wider uppercase shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                  Đang diễn ra trực tiếp
+                </span>
+                <span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[16px] text-primary">calendar_today</span> Thứ Tư, 28/10/2026
+                  (19/09 Bính Ngọ) • 08:00 - 12:00 • Grand Ballroom</span>
+              </div>
+              <h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
+                Lễ Đính Hôn Hà Phương &amp; Mai Phương
+              </h1>
+              <p class="font-title-md text-title-md text-primary font-medium flex items-center gap-2">
+                <span class="">Bản giao hưởng ngày đính ước</span>
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                <span class="text-on-surface-variant font-normal">Hệ thống điều khiển nhạc nghi lễ</span>
+              </p>
+            </div>
+            <!-- HUY HIỆU GIAI ĐOẠN HIỆN TẠI -->
+            <div
+              class="bg-surface-container-low/90 backdrop-blur-md rounded-xl p-4 sm:px-6 sm:py-4 flex items-center gap-4 shadow-sm">
+              <div
+                class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md shrink-0">
+                <span class="material-symbols-outlined text-[28px]">handshake</span>
+              </div>
+              <div>
+                <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-semibold">
+                  Giai đoạn kích hoạt</p>
+                <p class="font-title-md text-title-md text-on-surface font-bold">02. Nghi Lễ (20–30 phút)</p>
+                <p class="font-body-sm text-body-sm text-tertiary font-semibold flex items-center gap-1 mt-0.5">
+                  <span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+                  Đang phát tự động theo kịch bản
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- KHU VỰC TRÌNH PHÁT NHẠC CHÍNH (NOW PLAYING CONTROLLER) -->
+        <div
+          class="bg-surface-container-lowest rounded-2xl p-6 sm:10 shadow-[0_12px_40px_rgba(212,163,89,0.12)] relative overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Đĩa Than Hoa Cỏ Lãng Mạn -->
+            <div class="lg:col-span-4 flex flex-col items-center justify-center text-center">
+              <div
+                class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-surface-container-low shadow-[0_10px_35px_rgba(156,62,84,0.15)] flex items-center justify-center p-3">
+                <!-- Vòng hào quang đĩa xoay -->
+                <div
+                  class="w-full h-full rounded-full bg-gradient-to-tr from-[#fbf8f5] via-[#f7e6e9] to-[#faf0e6] p-2 flex items-center justify-center shadow-inner animate-[spin_14s_linear_infinite]"
+                  id="vinyl-disc">
+                  <div
+                    class="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center p-2.5 shadow-sm relative overflow-hidden">
+                    <img class="w-full h-full rounded-full object-cover"
+                      data-alt="Chic romantic vinyl album artwork with soft blush pink watercolor roses, ivory peonies, gold champagne dust, and elegant calligraphy for Ha Phuong and Mai Phuong wedding"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs90MSzget3KZTIKZfoFFosqoo5OVi4aYAH_Zavl6OLWoB6b9C0FQRBhXOxYVIP7aasS4_mMch7QyKjxlMKLetzjrTCWNP-ZvD-Wd5sePGy4K5bhihb6Wt8zECtKss4KABwk1B_LThFGdezZCDHZm7CSFFJMk5lfiWRE-d4ETiFjdMCMZ9TaAedx0qZNXiRmVsjHGGDPGg2xntwIVKA-HhXdtlUXC6-YFPRmVT_TwnTDIneX2e3MRa">
+                    <!-- Tâm đĩa kim loại champagne -->
+                    <div
+                      class="absolute w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center shadow-md">
+                      <div class="w-4 h-4 rounded-full bg-surface-container-lowest"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Kim đĩa nhạc tượng trưng -->
+                <div class="absolute -top-3 right-6 w-8 h-16 pointer-events-none flex flex-col items-center">
+                  <div class="w-4 h-4 rounded-full bg-secondary shadow-md"></div>
+                  <div class="w-1.5 h-12 bg-secondary/80 rounded-full"></div>
+                </div>
+              </div>
+              <div
+                class="mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-label-md text-label-md">
+                <span class="material-symbols-outlined text-[16px] text-secondary">album</span>
+                <span class="">Chất lượng phòng thu Master • Hi-Res</span>
+              </div>
+            </div>
+            <!-- Bảng điều khiển nhạc bài đang phát -->
+            <div class="lg:col-span-8 flex flex-col justify-center space-y-6">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md font-semibold">
+                    <span class="material-symbols-outlined text-[15px]">volume_up</span>
+                    ĐANG PHÁT TRÊN LOA CHÍNH
+                  </span>
+                  <span class="font-label-md text-label-md text-on-surface-variant font-semibold">GIAI ĐOẠN 2 / 3</span>
+                </div>
+                <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight"
+                  id="current-song-title">3 Giai Đoạn Âm Nhạc Lễ Đính Hôn</h2>
+                <p class="font-title-md text-title-md text-on-surface-variant font-normal" id="current-artist">
+                  Stephen Sanchez • Bài hát tiến vào ra mắt gia đình hai họ
+                </p>
+              </div>
+              <!-- Thanh tiến trình bài hát -->
+              <div class="space-y-2">
+                <div
+                  class="w-full h-3 bg-surface-container-high rounded-full cursor-pointer relative overflow-hidden group"
+                  id="progress-container">
+                  <div
+                    class="h-full bg-gradient-to-r from-primary-container via-primary to-secondary rounded-full transition-all duration-300"
+                    id="progress-bar" style="width: 48%;"></div>
+                </div>
+                <div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+                  <span class="" id="time-current">02:15</span>
+                  <span class="flex items-center gap-1 text-primary font-semibold">
+                    <span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+                    <span class="">Âm lượng chuẩn lễ đính hôn: 78%</span>
+                  </span>
+                  <span class="" id="time-total">04:48</span>
+                </div>
+              </div>
+              <!-- Bộ điều khiển phát nhạc TO BẢN - CHỐNG BẤM NHẦM -->
+              <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                <div class="flex items-center gap-3 sm:gap-5">
+                  <!-- Nút Bài Trước -->
+                  <button
+                    class="w-14 h-14 rounded-2xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-all shadow-sm active:scale-95"
+                    id="btn-prev" title="Bài trước đó" type="button">
+                    <span class="material-symbols-outlined text-[32px]">skip_previous</span>
+                  </button>
+                  <!-- Nút PLAY/PAUSE SIÊU TO NỔI BẬT -->
+                  <button
+                    class="w-20 h-20 rounded-full bg-primary hover:bg-[#863346] text-on-primary flex items-center justify-center transition-all shadow-xl active:scale-95 group"
+                    id="btn-play-pause" title="Phát hoặc Tạm dừng" type="button">
+                    <span class="material-symbols-outlined text-[42px] leading-none" id="play-icon">pause</span>
+                  </button>
+                  <!-- Nút Bài Tiếp Theo -->
+                  <button
+                    class="w-14 h-14 rounded-2xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-all shadow-sm active:scale-95"
+                    id="btn-next" title="Bài kế tiếp" type="button">
+                    <span class="material-symbols-outlined text-[32px]">skip_next</span>
+                  </button>
+                </div>
+                <!-- Nút Hạ Nhạc Mượt (Fade-out 3s) -->
+                <button
+                  class="h-14 px-6 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed/50 text-secondary font-label-lg text-label-lg font-bold flex items-center gap-2.5 transition-all shadow-sm active:scale-95"
+                  id="btn-fadeout" type="button">
+                  <span class="material-symbols-outlined text-[24px]">graphic_eq</span>
+                  <span class="">Chuyển mượt (Fade-out 3s)</span>
+                </button>
+              </div>
+              <!-- CỤM NÚT KÍCH HOẠT NHANH KHOẢNH KHẮC VÀNG TRONG LỄ ĐÍNH HÔN -->
+              <div class="pt-4 border-t-0 bg-surface-container-low/60 rounded-2xl p-4 sm:p-5">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">stars</span>
+                  <span class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider">
+                    Kích hoạt nhanh khoảnh khắc cao trào (Chuyển nhạc lập tức)
+                  </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <!-- Khoảnh khắc 1 -->
+                  <button
+                    class="p-3.5 rounded-xl bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-left transition-all duration-200 shadow-sm group flex flex-col justify-between gap-2"
+                    onclick="triggerMoment('Canon in D (Orchestral Climax)', 'Johann Pachelbel - Bản giao hưởng lộng lẫy', 'Cô dâu ra mắt hai họ')"
+                    type="button">
+                    <div class="flex items-center justify-between w-full">
+                      <span
+                        class="w-8 h-8 rounded-lg bg-primary-fixed text-primary group-hover:bg-surface-container-lowest group-hover:text-primary flex items-center justify-center font-bold text-xs">
+                        <span class="material-symbols-outlined text-[18px]">woman</span>
+                      </span>
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-primary/80 font-medium">BẤM
+                        KHI RA MẮT</span>
+                    </div>
+                    <div>
+                      <p
+                        class="font-title-md text-body-md font-bold text-on-surface group-hover:text-on-primary leading-tight">
+                        Cô dâu ra mắt hai họ</p>
+                      <p
+                        class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-primary/80 truncate">
+                        Canon in D Climax</p>
+                    </div>
+                  </button>
+                  <!-- Khoảnh khắc 2 -->
+                  <button
+                    class="p-3.5 rounded-xl bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-left transition-all duration-200 shadow-sm group flex flex-col justify-between gap-2"
+                    onclick="triggerMoment('A Thousand Years (Love Climax)', 'Christina Perri - Nghi thức đính ước trăm năm', 'Trao nhẫn đính hôn')"
+                    type="button">
+                    <div class="flex items-center justify-between w-full">
+                      <span
+                        class="w-8 h-8 rounded-lg bg-secondary-fixed text-secondary group-hover:bg-surface-container-lowest group-hover:text-primary flex items-center justify-center font-bold text-xs">
+                        <span class="material-symbols-outlined text-[18px]">favorite</span>
+                      </span>
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-primary/80 font-medium">BẤM
+                        KHI TRAO NHẪN</span>
+                    </div>
+                    <div>
+                      <p
+                        class="font-title-md text-body-md font-bold text-on-surface group-hover:text-on-primary leading-tight">
+                        Trao nhẫn đính hôn</p>
+                      <p
+                        class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-primary/80 truncate">
+                        A Thousand Years Climax</p>
+                    </div>
+                  </button>
+                  <!-- Khoảnh khắc 3 -->
+                  <button
+                    class="p-3.5 rounded-xl bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-left transition-all duration-200 shadow-sm group flex flex-col justify-between gap-2"
+                    onclick="triggerMoment('Sugar (Celebration Pop Ver)', 'Maroon 5 - Nâng ly chúc phúc hai họ', 'Nghi thức dâng trà &amp; Rót rượu')"
+                    type="button">
+                    <div class="flex items-center justify-between w-full">
+                      <span
+                        class="w-8 h-8 rounded-lg bg-tertiary-fixed text-tertiary group-hover:bg-surface-container-lowest group-hover:text-primary flex items-center justify-center font-bold text-xs">
+                        <span class="material-symbols-outlined text-[18px]">celebration</span>
+                      </span>
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-primary/80 font-medium">BẤM
+                        KHI DÂNG TRÀ</span>
+                    </div>
+                    <div>
+                      <p
+                        class="font-title-md text-body-md font-bold text-on-surface group-hover:text-on-primary leading-tight">
+                        Nghi thức dâng trà &amp; Rót rượu</p>
+                      <p
+                        class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-primary/80 truncate">
+                        Sugar (Upbeat Celebration)</p>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DANH SÁCH 5 GIAI ĐOẠN LỄ ĐÍNH HÔN CHUẨN XÁC THEO TIMELINE -->
+        <div class="space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <span class="font-label-lg text-label-lg text-primary font-bold tracking-widest uppercase">Danh Sách Theo
+                Tiến Trình</span>
+              <h2 class="font-headline-md text-headline-md text-on-surface font-semibold">3 Giai Đoạn Âm Nhạc Lễ Đính
+                Hôn</h2>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              Bấm <strong class="text-on-surface">"Bật Giai Đoạn Này Ngay"</strong> để tự động chuyển list nhạc tương
+              ứng cho không gian lễ đính ước.
+            </p>
+          </div>
+          <div class="space-y-4" id="timeline-accordion">
+            <!-- GIAI ĐOẠN 1 -->
+            <div
+              class="phase-card bg-surface-container-lowest rounded-2xl p-5 sm:p-6 shadow-sm transition-all duration-200 hover:shadow-md"
+              data-phase="1">
+              <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div class="flex items-center gap-4"><span
+                    class="w-12 h-12 rounded-2xl bg-surface-container-high text-on-surface font-headline-sm text-headline-sm flex items-center justify-center shrink-0">01</span>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="font-title-lg text-title-lg text-on-surface font-bold">Đón Khách</h3><span
+                        class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">45–60
+                        phút</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Nhạc tình yêu nhẹ nhàng, đón tiếp quan
+                      khách hai họ chuyện trò sum vầy trang trọng</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3"><button
+                    class="btn-activate-phase px-5 py-3 rounded-xl bg-surface-container-low hover:bg-secondary-fixed text-on-surface font-label-lg text-label-lg font-bold flex items-center gap-2 transition-all"
+                    onclick="activatePhase(1, 'Until I Found You', 'Stephen Sanchez')" type="button"><span
+                      class="material-symbols-outlined text-[20px]">play_arrow</span><span class="">Bật Giai Đoạn Này
+                      Ngay</span></button></div>
+              </div>
+              <div class="mt-4 pt-4 bg-surface-container-low/50 rounded-xl p-3 grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Until I Found You', 'Stephen Sanchez', '03:42')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Until I Found You</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Stephen Sanchez • 03:42</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Can\'t Take My Eyes Off You', 'Frankie Valli', '03:20')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Can't Take My Eyes Off
+                        You</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Jazz Acoustic Cafe • 03:20</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Ánh Nắng Của Anh', 'Đức Phúc (Acoustic)', '04:12')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Ánh Nắng Của Anh</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Piano Dịu Êm • 04:12</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+              </div>
+            </div>
+            <!-- GIAI ĐOẠN 2 (ĐANG CHỌN / ACTIVE) -->
+            <div
+              class="phase-card bg-surface-container-lowest rounded-2xl p-5 sm:p-6 shadow-md transition-all duration-200 ring-2 ring-primary/40 relative overflow-hidden"
+              data-phase="2">
+              <div
+                class="absolute top-0 right-0 px-4 py-1 bg-primary text-on-primary font-label-sm text-label-sm rounded-bl-xl font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest animate-ping"></span>Giai đoạn đang
+                kích hoạt</div>
+              <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div class="flex items-center gap-4"><span
+                    class="w-12 h-12 rounded-2xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center shrink-0 shadow-md">02</span>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="font-title-lg text-title-lg text-primary font-bold">Nghi Lễ</h3><span
+                        class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-container font-label-sm text-label-sm font-semibold">20–30
+                        phút</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface font-medium">Nhạc không lời, nhạc nền trang
+                      trọng cho khoảnh khắc đính ước thiêng liêng</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3"><span
+                    class="px-4 py-2.5 rounded-xl bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md font-bold flex items-center gap-2"><span
+                      class="material-symbols-outlined text-[20px]">equalizer</span><span class="">Đang phát giai đoạn
+                      này</span></span></div>
+              </div>
+              <div class="mt-4 pt-4 bg-primary-fixed/20 rounded-xl p-3 grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest shadow-sm border-0 cursor-pointer"
+                  onclick="playSong('Until I Found You (Orchestral Instrumental)', 'Stephen Sanchez &amp; Dàn Nhạc', '04:48')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center"><span
+                        class="material-symbols-outlined text-[14px]">volume_up</span></span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-bold text-primary truncate">Until I Found You (Orchestral
+                        Instrumental)</p>
+                      <p class="font-body-sm text-body-sm text-primary/80 font-medium">Dàn Nhạc Giao Hưởng • Đang phát
+                      </p>
+                    </div>
+                  </div><span
+                    class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0"><span
+                      class="material-symbols-outlined text-[18px]">equalizer</span></span>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-primary-fixed/40 transition-all cursor-pointer"
+                  onclick="playSong('Beautiful In White (Violin Ver)', 'Shane Filan (Violin Solo)', '03:52')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Beautiful In White
+                        (Violin Ver)</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Violin &amp; Piano • 03:52</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-primary-fixed/40 transition-all cursor-pointer"
+                  onclick="playSong('A Thousand Years (Orchestral)', 'Christina Perri (Cello &amp; Strings)', '04:45')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">A Thousand Years
+                        (Orchestral)</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Dàn Dây Hòa Tấu • 04:45</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+              </div>
+            </div>
+            <!-- GIAI ĐOẠN 3 -->
+            <div
+              class="phase-card bg-surface-container-lowest rounded-2xl p-5 sm:p-6 shadow-sm transition-all duration-200 hover:shadow-md"
+              data-phase="3">
+              <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div class="flex items-center gap-4"><span
+                    class="w-12 h-12 rounded-2xl bg-surface-container-high text-on-surface font-headline-sm text-headline-sm flex items-center justify-center shrink-0">03</span>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="font-title-lg text-title-lg text-on-surface font-bold">Chụp Ảnh &amp; Đãi Tiệc</h3>
+                      <span
+                        class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">60–90
+                        phút</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Nhạc cưới Việt Nam, nhạc vui tươi rộn
+                      rã nâng ly chúc phúc và lưu giữ khoảnh khắc cùng bạn bè, hai họ</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3"><button
+                    class="btn-activate-phase px-5 py-3 rounded-xl bg-surface-container-low hover:bg-secondary-fixed text-on-surface font-label-lg text-label-lg font-bold flex items-center gap-2 transition-all"
+                    onclick="activatePhase(3, 'Một Nhà', 'Da LAB (Wedding Ver)')" type="button"><span
+                      class="material-symbols-outlined text-[20px]">play_arrow</span><span class="">Bật Giai Đoạn Này
+                      Ngay</span></button></div>
+              </div>
+              <div class="mt-4 pt-4 bg-surface-container-low/50 rounded-xl p-3 grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Một Nhà', 'Da LAB', '03:15')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Một Nhà</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Da LAB • 03:15</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Cầu Hôn', 'Văn Mai Hương', '03:45')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Cầu Hôn</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Văn Mai Hương • 03:45</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Ngày Đầu Tiên', 'Đức Phúc', '03:32')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Ngày Đầu Tiên</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Đức Phúc • 03:32</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Ánh Nắng Của Anh', 'Đức Phúc', '04:12')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Ánh Nắng Của Anh</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Piano Dịu Êm • 04:12</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Có Chàng Trai Viết Lên Cây', 'Phan Mạnh Quỳnh', '04:50')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Có Chàng Trai Viết Lên
+                        Cây</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Guitar Solo • 04:50</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+                <div
+                  class="song-item flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed/30 transition-all cursor-pointer"
+                  onclick="playSong('Marry You', 'Bruno Mars', '03:50')">
+                  <div class="flex items-center gap-2.5 min-w-0"><span
+                      class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+                    <div class="truncate">
+                      <p class="font-body-md text-body-md font-semibold text-on-surface truncate">Marry You</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Bruno Mars • 03:50</p>
+                    </div>
+                  </div><button
+                    class="w-9 h-9 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0"
+                    type="button"><span class="material-symbols-outlined text-[20px]">play_arrow</span></button>
+                </div>
+              </div>
+            </div>
+            <!-- GIAI ĐOẠN 4 -->
+
+            <!-- GIAI ĐOẠN 5 -->
+
+          </div>
+        </div>
+        <!-- KHUNG LƯU Ý CHO ĐIỀU PHỐI VIÊN ÂM THANH -->
+        <div
+          class="rounded-2xl bg-surface-container-low p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined text-[22px]">tips_and_updates</span>
+            </div>
+            <div>
+              <p class="font-title-md text-title-md text-on-surface font-bold">Mẹo vận hành âm thanh lễ đính hôn</p>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Khi đại diện hai họ bắt đầu phát biểu và trao
+                sính lễ, hãy ấn nút <strong class="text-secondary font-bold">"Chuyển mượt (Fade-out 3s)"</strong> để âm
+                lượng hạ từ từ êm dịu, không ngắt đột ngột gây gián đoạn không khí trang trọng.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md shrink-0">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+            <span class="">Hệ Thống Trực Tuyến: Sẵn Sàng 100%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let isPlaying = true;
+      const playBtn = document.getElementById('btn-play-pause');
+      const playIcon = document.getElementById('play-icon');
+      const vinylDisc = document.getElementById('vinyl-disc');
+      const songTitleEl = document.getElementById('current-song-title');
+      const artistEl = document.getElementById('current-artist');
+      const progressBar = document.getElementById('progress-bar');
+      const timeCurrent = document.getElementById('time-current');
+      const timeTotal = document.getElementById('time-total');
+      const fadeOutBtn = document.getElementById('btn-fadeout');
+
+      // Toggle Play / Pause
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          isPlaying = !isPlaying;
+          if (isPlaying) {
+            playIcon.textContent = 'pause';
+            vinylDisc.style.animationPlayState = 'running';
+          } else {
+            playIcon.textContent = 'play_arrow';
+            vinylDisc.style.animationPlayState = 'paused';
+          }
+        });
+      }
+
+      // Fade out effect
+      if (fadeOutBtn) {
+        fadeOutBtn.addEventListener('click', () => {
+          fadeOutBtn.classList.add('bg-secondary-fixed', 'scale-95');
+          const originalText = fadeOutBtn.innerHTML;
+          fadeOutBtn.innerHTML = '<span class="material-symbols-outlined text-[24px] animate-spin">autorenew</span><span>Đang hạ âm lượng 3s...</span>';
+
+          let width = 48;
+          const interval = setInterval(() => {
+            width = Math.max(0, width - 4);
+            progressBar.style.width = width + '%';
+          }, 250);
+
+          setTimeout(() => {
+            clearInterval(interval);
+            isPlaying = false;
+            playIcon.textContent = 'play_arrow';
+            vinylDisc.style.animationPlayState = 'paused';
+            fadeOutBtn.innerHTML = originalText;
+            fadeOutBtn.classList.remove('scale-95');
+          }, 3000);
+        });
+      }
+
+      // Bấm phát một bài hát cụ thể
+      window.playSong = function (title, artist, duration) {
+        songTitleEl.textContent = title;
+        artistEl.textContent = artist + " • Đang phát trực tiếp";
+        timeCurrent.textContent = '00:01';
+        timeTotal.textContent = duration;
+        progressBar.style.width = '3%';
+
+        isPlaying = true;
+        playIcon.textContent = 'pause';
+        vinylDisc.style.animationPlayState = 'running';
+      };
+
+      // Kích hoạt nhanh khoảnh khắc cao trào
+      window.triggerMoment = function (songName, artistDesc, momentName) {
+        songTitleEl.textContent = songName;
+        artistEl.textContent = artistDesc;
+        timeCurrent.textContent = '00:00';
+        timeTotal.textContent = '04:15';
+        progressBar.style.width = '1%';
+
+        isPlaying = true;
+        playIcon.textContent = 'pause';
+        vinylDisc.style.animationPlayState = 'running';
+
+        // Rung nhẹ nút để người bấm yên tâm đã bấm thành công
+        if (navigator.vibrate) {
+          navigator.vibrate(50);
+        }
+      };
+
+      // Kích hoạt toàn bộ giai đoạn
+      window.activatePhase = function (phaseNum, firstSong, artist) {
+        // Cập nhật card đang active
+        document.querySelectorAll('.phase-card').forEach(card => {
+          const p = card.getAttribute('data-phase');
+          const activateBtn = card.querySelector('.btn-activate-phase');
+
+          if (p == phaseNum) {
+            card.classList.add('ring-2', 'ring-primary/40', 'shadow-md');
+            if (activateBtn) {
+              activateBtn.outerHTML = `
+            <span class="px-4 py-2.5 rounded-xl bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">equalizer</span>
+              <span>Đang phát giai đoạn này</span>
+            </span>
+          `;
+            }
+          } else {
+            card.classList.remove('ring-2', 'ring-primary/40');
+          }
+        });
+
+        playSong(firstSong, artist, '03:45');
+      };
+    </script>
+  </main>
+  <footer class="w-full bg-surface-container-low py-space-lg">
+    <div class="w-full px-gutter flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-2"><span
+          class="material-symbols-outlined text-primary text-[18px]">volunteer_activism</span><span
+          class="font-headline-sm text-body-md text-on-surface">Hà Phương &amp; Mai Phương • Lễ Đính Hôn Trọn Vẹn Yêu
+          Thương</span></div>
+      <p class="font-body-sm text-body-sm text-on-surface-variant italic">"Chúc đôi uyên ương trăm năm hạnh phúc, vẹn
+        tròn sắc son đính ước bên nhau."</p>
+      <div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant"><span
+          class="flex items-center gap-1"><span
+            class="material-symbols-outlined text-tertiary text-[14px]">graphic_eq</span><span class="">48kHz • Lossless
+            Audio</span></span><span class="">•</span><span class="">Sân Khấu Chính Grand Ballroom</span></div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
