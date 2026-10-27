@@ -436,7 +436,7 @@ export default function WeddingMusicPlayer() {
   // "Xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con"
   // Runs character-by-character, pauses 2 seconds at the end, then repeats!
   const THANK_YOU_MESSAGE =
-    "Xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con";
+    "Chúng con xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con";
   const [typewriterIndex, setTypewriterIndex] = useState<number>(0);
   const [isTypewriterFading, setIsTypewriterFading] = useState<boolean>(false);
 
