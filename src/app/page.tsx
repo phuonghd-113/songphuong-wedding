@@ -303,7 +303,7 @@ export const WEDDING_DATE_FONTS: WeddingDateFontOption[] = [
     id: "harmonized-serif",
     name: "Playfair Cân Đối",
     subtitle: "Thanh Lịch & Quý Phái (Khuyên dùng)",
-    dateFontFamily: "'Playfair Display', Georgia, serif",
+    dateFontFamily: "'Montserrat', sans-serif",
     lunarFontFamily: "'Playfair Display', Georgia, serif",
     dateWeight: "500",
     lunarWeight: "500",
@@ -511,7 +511,7 @@ export default function WeddingMusicPlayer() {
   // "Xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con"
   // Runs character-by-character, pauses 2 seconds at the end, then repeats!
   const THANK_YOU_MESSAGE =
-    "Chúng con xin cảm ơn bà mẹ và hai bên gia đình đã yêu thương và vun đắp cho chúng con!";
+    "Chúng con xin cảm ơn ba mẹ và hai bên gia đình đã yêu thương và vun đắp cho chúng con!";
   const [typewriterIndex, setTypewriterIndex] = useState<number>(0);
   const [isTypewriterFading, setIsTypewriterFading] = useState<boolean>(false);
 
@@ -813,9 +813,12 @@ export default function WeddingMusicPlayer() {
           </div>
 
           {/* MAIN STAGE POSTER CONTENT (EXACTLY MATCHING USER REFERENCE IMAGE) */}
-          <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-8 my-auto flex flex-col items-center justify-center text-center space-y-2 sm:space-y-3 md:space-y-4 py-2 sm:py-4">
-            {/* Header: LỄ ĐÍNH HÔN (Tăng gấp 2 lần cho màn hình TV) */}
-            <h1 className="font-headline-lg font-bold tracking-[0.16em] sm:tracking-[0.22em] text-[#ab293b] text-3xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] uppercase drop-shadow-xs leading-tight">
+          <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-8 my-auto flex flex-col items-center justify-center text-center space-y-1 sm:space-y-2 md:space-y-3 py-1 sm:py-2">
+            {/* Header: LỄ ĐÍNH HÔN (Đẩy lên trên, to hơn và đậm hơn cho màn hình TV) */}
+            <h1
+              style={{ fontWeight: 900, textShadow: "0 2px 12px rgba(171, 41, 59, 0.18)" }}
+              className="font-headline-lg font-black tracking-[0.16em] sm:tracking-[0.2em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[92px] xl:text-[108px] 2xl:text-[118px] uppercase drop-shadow-[0_2px_6px_rgba(171,41,59,0.22)] leading-none mb-3 sm:mb-5 md:mb-6 lg:mb-8 -mt-3 sm:-mt-6 md:-mt-10 lg:-mt-14 xl:-mt-16"
+            >
               LỄ ĐÍNH HÔN
             </h1>
 

@@ -5,7 +5,7 @@ import "./globals.css";
 const playfairDisplay = Playfair_Display({
   subsets: ["latin", "vietnamese"],
   variable: "--font-playfair-display",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -48,7 +48,7 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Charm:wght@400;700&family=Charmonman:wght@400;700&family=Cormorant+Upright:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Ephesis&family=Dancing+Script:wght@400;600;700&family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Charm:wght@400;700&family=Charmonman:wght@400;700&family=Cormorant+Upright:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Ephesis&family=Dancing+Script:wght@400;600;700&family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Montserrat:wght@300;400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
       </head>
       <body className="bg-background font-body-md text-on-surface antialiased">
