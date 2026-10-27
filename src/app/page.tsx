@@ -806,7 +806,7 @@ export default function WeddingMusicPlayer() {
 
             {/* CENTER SILHOUETTE: LARGE CHINESE "SONG HỶ" (DOUBLE HAPPINESS 囍) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-              <span className="text-[#f7b4af]/22 font-serif text-[240px] xs:text-[320px] sm:text-[440px] md:text-[540px] lg:text-[620px] leading-none transform -translate-y-2">
+              <span className="text-[#f7b4af]/22 font-serif text-[240px] xs:text-[320px] sm:text-[440px] md:text-[540px] lg:text-[620px] leading-none transform translate-y-2 sm:translate-y-4 md:translate-y-6 lg:translate-y-8">
                 囍
               </span>
             </div>
@@ -815,7 +815,7 @@ export default function WeddingMusicPlayer() {
           {/* MAIN STAGE POSTER CONTENT (EXACTLY MATCHING USER REFERENCE IMAGE) */}
           <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl mx-auto px-4 sm:px-8 h-full flex flex-col justify-between items-center text-center py-8 sm:py-12 md:py-14 lg:py-16 xl:py-20 select-none">
             {/* Header: LỄ ĐÍNH HÔN (Đứng ở phần trên trang trọng, font to & nét đậm 900) */}
-            <div className="w-full flex flex-col items-center pt-2 sm:pt-4">
+            <div className="w-full flex flex-col items-center pt-2 sm:pt-4 pb-4 sm:pb-8 md:pb-10 lg:pb-14 xl:pb-18">
               <h1
                 style={{ fontWeight: 900, textShadow: "0 2px 14px rgba(171, 41, 59, 0.2)" }}
                 className="font-headline-lg font-black tracking-[0.16em] sm:tracking-[0.22em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[96px] xl:text-[112px] 2xl:text-[124px] uppercase drop-shadow-[0_2px_8px_rgba(171,41,59,0.22)] leading-none"
@@ -824,8 +824,8 @@ export default function WeddingMusicPlayer() {
               </h1>
             </div>
 
-            {/* COUPLE NAMES & INTERTWINED WEDDING RINGS */}
-            <div className="w-full flex items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-14 py-2 sm:py-4 my-auto">
+            {/* COUPLE NAMES & INTERTWINED WEDDING RINGS (Tầng giữa: hạ xuống trang nhã, không đè chữ) */}
+            <div className="w-full flex items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-14 py-1 sm:py-2 my-auto">
               {/* Left Column: Mai Phương */}
               <div className="flex-1 flex flex-col items-center sm:items-end text-center sm:text-right">
                 <span
