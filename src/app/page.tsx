@@ -813,35 +813,37 @@ export default function WeddingMusicPlayer() {
           </div>
 
           {/* MAIN STAGE POSTER CONTENT (EXACTLY MATCHING USER REFERENCE IMAGE) */}
-          <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-8 my-auto flex flex-col items-center justify-center text-center space-y-1 sm:space-y-2 md:space-y-3 py-1 sm:py-2">
-            {/* Header: LỄ ĐÍNH HÔN (Đẩy lên trên, to hơn và đậm hơn cho màn hình TV) */}
-            <h1
-              style={{ fontWeight: 900, textShadow: "0 2px 12px rgba(171, 41, 59, 0.18)" }}
-              className="font-headline-lg font-black tracking-[0.16em] sm:tracking-[0.2em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[92px] xl:text-[108px] 2xl:text-[118px] uppercase drop-shadow-[0_2px_6px_rgba(171,41,59,0.22)] leading-none mb-3 sm:mb-5 md:mb-6 lg:mb-8 -mt-3 sm:-mt-6 md:-mt-10 lg:-mt-14 xl:-mt-16"
-            >
-              LỄ ĐÍNH HÔN
-            </h1>
+          <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl mx-auto px-4 sm:px-8 h-full flex flex-col justify-between items-center text-center py-8 sm:py-12 md:py-14 lg:py-16 xl:py-20 select-none">
+            {/* Header: LỄ ĐÍNH HÔN (Đứng ở phần trên trang trọng, font to & nét đậm 900) */}
+            <div className="w-full flex flex-col items-center pt-2 sm:pt-4">
+              <h1
+                style={{ fontWeight: 900, textShadow: "0 2px 14px rgba(171, 41, 59, 0.2)" }}
+                className="font-headline-lg font-black tracking-[0.16em] sm:tracking-[0.22em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[96px] xl:text-[112px] 2xl:text-[124px] uppercase drop-shadow-[0_2px_8px_rgba(171,41,59,0.22)] leading-none"
+              >
+                LỄ ĐÍNH HÔN
+              </h1>
+            </div>
 
             {/* COUPLE NAMES & INTERTWINED WEDDING RINGS */}
-            <div className="w-full flex items-center justify-center gap-2 sm:gap-6 md:gap-8 py-0.5 sm:py-1">
-              {/* Left Column: Mai Phương (Tăng 1.5 lần cho màn hình TV) */}
+            <div className="w-full flex items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-14 py-2 sm:py-4 my-auto">
+              {/* Left Column: Mai Phương */}
               <div className="flex-1 flex flex-col items-center sm:items-end text-center sm:text-right">
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs"
+                  className="font-cursive text-5xl sm:text-[88px] md:text-[116px] lg:text-[144px] xl:text-[162px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs"
                 >
                   Mai
                 </span>
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs mt-1 sm:mt-2"
+                  className="font-cursive text-5xl sm:text-[88px] md:text-[116px] lg:text-[144px] xl:text-[162px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs mt-1.5 sm:mt-3"
                 >
                   Phương
                 </span>
               </div>
 
               {/* Center Column: Luxurious Intertwined Wedding Rings with 3D Rotation Animation */}
-              <div className="shrink-0 px-1 sm:px-3 flex items-center justify-center">
+              <div className="shrink-0 px-2 sm:px-4 md:px-6 flex items-center justify-center">
                 <style>{`
                   @keyframes ringSpin3D {
                     0% {
@@ -853,7 +855,7 @@ export default function WeddingMusicPlayer() {
                   }
                 `}</style>
                 <div
-                  className="relative w-28 h-24 sm:w-36 sm:h-32 md:w-48 md:h-40 lg:w-56 lg:h-48 xl:w-64 xl:h-56 flex items-center justify-center select-none"
+                  className="relative w-32 h-28 sm:w-40 sm:h-36 md:w-52 md:h-44 lg:w-64 lg:h-54 xl:w-72 xl:h-60 flex items-center justify-center select-none"
                   style={{
                     animation: "ringSpin3D 14s linear infinite",
                     transformOrigin: "center center",
@@ -1053,60 +1055,63 @@ export default function WeddingMusicPlayer() {
                 </div>
               </div>
 
-              {/* Right Column: Hà Phương (Tăng 1.5 lần cho màn hình TV) */}
+              {/* Right Column: Hà Phương */}
               <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left">
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs"
+                  className="font-cursive text-5xl sm:text-[88px] md:text-[116px] lg:text-[144px] xl:text-[162px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs"
                 >
                   Hà
                 </span>
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs mt-1 sm:mt-2"
+                  className="font-cursive text-5xl sm:text-[88px] md:text-[116px] lg:text-[144px] xl:text-[162px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs mt-1.5 sm:mt-3"
                 >
                   Phương
                 </span>
               </div>
             </div>
 
-            {/* Heartwarming Thank-You Message in Cursive with Typewriter Animation (Strictly 1 line) */}
-            <div className="w-full max-w-5xl mx-auto flex items-center justify-center min-h-[36px] sm:min-h-[48px] px-2 overflow-visible">
-              <p
-                style={{ fontFamily: activeFont.fontFamily }}
-                className={`font-cursive text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl text-[#d95252] italic whitespace-nowrap leading-none drop-shadow-xs text-center transition-opacity duration-300 ${
-                  isTypewriterFading ? "opacity-0" : "opacity-100"
-                }`}
-              >
-                {THANK_YOU_MESSAGE.slice(0, typewriterIndex)}
-                {typewriterIndex < THANK_YOU_MESSAGE.length && (
-                  <span className="inline-block w-0.5 h-3.5 sm:h-5 bg-[#d95252]/80 ml-1.5 align-middle animate-pulse" />
-                )}
-              </p>
-            </div>
+            {/* Bottom Group: Thank-You Message + Date & Lunar Date (Định vị phía dưới cân đối, thanh lịch) */}
+            <div className="w-full flex flex-col items-center justify-center space-y-3 sm:space-y-4 md:space-y-5 pb-3 sm:pb-5 md:pb-6 lg:pb-8">
+              {/* Heartwarming Thank-You Message in Cursive with Typewriter Animation (Strictly 1 line) */}
+              <div className="w-full max-w-5xl mx-auto flex items-center justify-center min-h-[36px] sm:min-h-[44px] md:min-h-[52px] px-2 overflow-visible">
+                <p
+                  style={{ fontFamily: activeFont.fontFamily }}
+                  className={`font-cursive text-sm sm:text-base md:text-xl lg:text-2xl xl:text-[34px] 2xl:text-[38px] text-[#d95252] italic whitespace-nowrap leading-none drop-shadow-xs text-center transition-opacity duration-300 ${
+                    isTypewriterFading ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  {THANK_YOU_MESSAGE.slice(0, typewriterIndex)}
+                  {typewriterIndex < THANK_YOU_MESSAGE.length && (
+                    <span className="inline-block w-0.5 h-3.5 sm:h-5 bg-[#d95252]/80 ml-1.5 align-middle animate-pulse" />
+                  )}
+                </p>
+              </div>
 
-            {/* Date & Lunar Date */}
-            <div className="pt-2 sm:pt-3.5 flex flex-col items-center justify-center space-y-0.5 sm:space-y-1 select-none">
-              <p
-                style={{
-                  fontFamily: activeDateFont.dateFontFamily,
-                  fontWeight: activeDateFont.dateWeight,
-                  letterSpacing: activeDateFont.dateTracking,
-                }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-[#782230] leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
-              >
-                28.10.2026
-              </p>
-              <p
-                style={{
-                  fontFamily: activeDateFont.lunarFontFamily,
-                  fontWeight: activeDateFont.lunarWeight,
-                  letterSpacing: activeDateFont.lunarTracking,
-                }}
-                className="text-xs sm:text-sm md:text-base lg:text-[18px] text-[#8c2b3c] leading-normal"
-              >
-                19.09 (Bính Ngọ)
-              </p>
+              {/* Date & Lunar Date */}
+              <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-1.5 select-none">
+                <p
+                  style={{
+                    fontFamily: activeDateFont.dateFontFamily,
+                    fontWeight: activeDateFont.dateWeight,
+                    letterSpacing: activeDateFont.dateTracking,
+                  }}
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] text-[#782230] leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+                >
+                  28.10.2026
+                </p>
+                <p
+                  style={{
+                    fontFamily: activeDateFont.lunarFontFamily,
+                    fontWeight: activeDateFont.lunarWeight,
+                    letterSpacing: activeDateFont.lunarTracking,
+                  }}
+                  className="text-xs sm:text-sm md:text-base lg:text-[19px] xl:text-[23px] 2xl:text-[25px] text-[#8c2b3c] leading-normal"
+                >
+                  19.09 (Bính Ngọ)
+                </p>
+              </div>
             </div>
           </div>
         </section>
