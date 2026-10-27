@@ -806,7 +806,7 @@ export default function WeddingMusicPlayer() {
 
             {/* CENTER SILHOUETTE: LARGE CHINESE "SONG HỶ" (DOUBLE HAPPINESS 囍) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-              <span className="text-[#f7b4af]/22 font-serif text-[240px] xs:text-[320px] sm:text-[440px] md:text-[540px] lg:text-[620px] leading-none transform translate-y-2 sm:translate-y-4 md:translate-y-6 lg:translate-y-8">
+              <span className="text-[#f7b4af]/22 font-serif text-[240px] xs:text-[320px] sm:text-[440px] md:text-[540px] lg:text-[620px] leading-none transform translate-y-1 sm:translate-y-2 md:translate-y-3 lg:translate-y-4">
                 囍
               </span>
             </div>
@@ -815,7 +815,7 @@ export default function WeddingMusicPlayer() {
           {/* MAIN STAGE POSTER CONTENT (EXACTLY MATCHING USER REFERENCE IMAGE) */}
           <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl mx-auto px-4 sm:px-8 h-full flex flex-col justify-between items-center text-center py-8 sm:py-12 md:py-14 lg:py-16 xl:py-20 select-none">
             {/* Header: LỄ ĐÍNH HÔN (Không blur, nét sắc bén, khoảng cách chữ tự nhiên gọn gàng) */}
-            <div className="w-full flex flex-col items-center pt-2 sm:pt-4 pb-4 sm:pb-8 md:pb-10 lg:pb-14 xl:pb-18">
+            <div className="w-full flex flex-col items-center pt-2 sm:pt-4 pb-2 sm:pb-4 md:pb-6 lg:pb-8 xl:pb-10">
               <h1
                 style={{ fontWeight: 900 }}
                 className="font-headline-lg font-black tracking-[0.02em] sm:tracking-[0.03em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[96px] xl:text-[112px] 2xl:text-[124px] uppercase leading-none"
