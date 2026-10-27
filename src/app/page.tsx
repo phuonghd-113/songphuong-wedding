@@ -432,11 +432,86 @@ export default function WeddingMusicPlayer() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeTab]);
 
+  // SCREEN WAKE LOCK & KEEP-ALIVE: Ngăn Smart TV, màn hình LED và laptop tự động tắt màn hình (Display Sleep)
+  const videoKeepAliveRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (activeTab !== "presentation") return;
+
+    let wakeLockSentinel: any = null;
+
+    // 1. Chuẩn W3C Screen Wake Lock API (Hỗ trợ Chrome, Edge, Safari 16.4+, Android TV, Samsung Browser)
+    const requestWakeLock = async () => {
+      if ("wakeLock" in navigator) {
+        try {
+          wakeLockSentinel = await (navigator as any).wakeLock.request("screen");
+        } catch (err) {
+          console.warn("Screen Wake Lock could not be acquired:", err);
+        }
+      }
+    };
+
+    requestWakeLock();
+
+    // Tự động kích hoạt lại khi người dùng quay lại tab trình duyệt
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible" && activeTab === "presentation") {
+        requestWakeLock();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // 2. Fallback Media Stream Keep-Alive cho Smart TV (LG webOS, Samsung Tizen TV, v.v.)
+    // Hệ điều hành Smart TV luôn giữ màn hình sáng khi phát hiện có luồng video đang chạy
+    let stream: MediaStream | null = null;
+    let animId: number;
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = 2;
+      canvas.height = 2;
+      const ctx = canvas.getContext("2d");
+
+      let toggle = false;
+      const tick = () => {
+        if (ctx) {
+          toggle = !toggle;
+          ctx.fillStyle = toggle ? "#000000" : "#020202";
+          ctx.fillRect(0, 0, 2, 2);
+        }
+        animId = requestAnimationFrame(tick);
+      };
+      tick();
+
+      if ("captureStream" in canvas && videoKeepAliveRef.current) {
+        stream = (canvas as any).captureStream(1); // 1 khung hình/giây, tối ưu 0% CPU
+        videoKeepAliveRef.current.srcObject = stream;
+        videoKeepAliveRef.current.play().catch(() => {});
+      }
+    } catch (e) {
+      console.warn("TV keep-alive video stream error:", e);
+    }
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      cancelAnimationFrame(animId);
+      if (wakeLockSentinel) {
+        wakeLockSentinel.release().catch(() => {});
+        wakeLockSentinel = null;
+      }
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
+      if (videoKeepAliveRef.current) {
+        videoKeepAliveRef.current.srcObject = null;
+      }
+    };
+  }, [activeTab]);
+
   // Typewriter effect for presentation screen thank you message
   // "Xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con"
   // Runs character-by-character, pauses 2 seconds at the end, then repeats!
   const THANK_YOU_MESSAGE =
-    "Chúng con xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con!";
+    "Chúng con xin cảm ơn bà mẹ và hai bên gia đình đã yêu thương và vun đắp cho chúng con!";
   const [typewriterIndex, setTypewriterIndex] = useState<number>(0);
   const [isTypewriterFading, setIsTypewriterFading] = useState<boolean>(false);
 
@@ -626,6 +701,16 @@ export default function WeddingMusicPlayer() {
         <section
           className="fixed inset-0 z-50 w-screen h-screen overflow-hidden flex flex-col justify-center items-center bg-gradient-to-b from-[#fff6f4] via-[#fde9e7] to-[#fadad7] transition-all duration-300"
         >
+          {/* INVISIBLE VIDEO KEEP-ALIVE: Ngăn Smart TV / Laptop tắt màn hình hoặc kích hoạt Screensaver */}
+          <video
+            ref={videoKeepAliveRef}
+            muted
+            playsInline
+            loop
+            aria-hidden="true"
+            className="sr-only pointer-events-none opacity-0 absolute w-1 h-1"
+          />
+
           {/* NÚT THOÁT KÍN ĐÁO: Ẩn trên màn LED, chỉ hiện khi rê chuột lên góc trên bên phải hoặc nhấn ESC */}
           <button
             type="button"
