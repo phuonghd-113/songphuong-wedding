@@ -814,11 +814,11 @@ export default function WeddingMusicPlayer() {
 
           {/* MAIN STAGE POSTER CONTENT (EXACTLY MATCHING USER REFERENCE IMAGE) */}
           <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl mx-auto px-4 sm:px-8 h-full flex flex-col justify-between items-center text-center py-8 sm:py-12 md:py-14 lg:py-16 xl:py-20 select-none">
-            {/* Header: LỄ ĐÍNH HÔN (Đứng ở phần trên trang trọng, font to & nét đậm 900) */}
+            {/* Header: LỄ ĐÍNH HÔN (Không blur, nét sắc bén, khoảng cách chữ tự nhiên gọn gàng) */}
             <div className="w-full flex flex-col items-center pt-2 sm:pt-4 pb-4 sm:pb-8 md:pb-10 lg:pb-14 xl:pb-18">
               <h1
-                style={{ fontWeight: 900, textShadow: "0 2px 14px rgba(171, 41, 59, 0.2)" }}
-                className="font-headline-lg font-black tracking-[0.16em] sm:tracking-[0.22em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[96px] xl:text-[112px] 2xl:text-[124px] uppercase drop-shadow-[0_2px_8px_rgba(171,41,59,0.22)] leading-none"
+                style={{ fontWeight: 900 }}
+                className="font-headline-lg font-black tracking-[0.02em] sm:tracking-[0.03em] text-[#ab293b] text-4xl sm:text-6xl md:text-7xl lg:text-[96px] xl:text-[112px] 2xl:text-[124px] uppercase leading-none"
               >
                 LỄ ĐÍNH HÔN
               </h1>
