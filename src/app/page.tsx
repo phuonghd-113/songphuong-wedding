@@ -436,7 +436,7 @@ export default function WeddingMusicPlayer() {
   // "Xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con"
   // Runs character-by-character, pauses 2 seconds at the end, then repeats!
   const THANK_YOU_MESSAGE =
-    "Chúng con xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con";
+    "Chúng con xin cảm ơn hai bên gia đình đã yêu thương và vun đắp cho chúng con!";
   const [typewriterIndex, setTypewriterIndex] = useState<number>(0);
   const [isTypewriterFading, setIsTypewriterFading] = useState<boolean>(false);
 
@@ -728,25 +728,25 @@ export default function WeddingMusicPlayer() {
           </div>
 
           {/* MAIN STAGE POSTER CONTENT (EXACTLY MATCHING USER REFERENCE IMAGE) */}
-          <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-8 my-auto flex flex-col items-center justify-center text-center space-y-2 sm:space-y-3 md:space-y-4 py-4 sm:py-6">
-            {/* Header: LỄ ĐÍNH HÔN */}
-            <h1 className="font-headline-lg font-bold tracking-[0.2em] sm:tracking-[0.25em] text-[#ab293b] text-lg sm:text-2xl md:text-3xl lg:text-4xl uppercase drop-shadow-xs">
+          <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-8 my-auto flex flex-col items-center justify-center text-center space-y-2 sm:space-y-3 md:space-y-4 py-2 sm:py-4">
+            {/* Header: LỄ ĐÍNH HÔN (Tăng gấp 2 lần cho màn hình TV) */}
+            <h1 className="font-headline-lg font-bold tracking-[0.16em] sm:tracking-[0.22em] text-[#ab293b] text-3xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] uppercase drop-shadow-xs leading-tight">
               LỄ ĐÍNH HÔN
             </h1>
 
             {/* COUPLE NAMES & INTERTWINED WEDDING RINGS */}
             <div className="w-full flex items-center justify-center gap-2 sm:gap-6 md:gap-8 py-0.5 sm:py-1">
-              {/* Left Column: Mai Phương */}
+              {/* Left Column: Mai Phương (Tăng 1.5 lần cho màn hình TV) */}
               <div className="flex-1 flex flex-col items-center sm:items-end text-center sm:text-right">
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#e25757] font-normal leading-[0.95] drop-shadow-xs"
+                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs"
                 >
                   Mai
                 </span>
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#e25757] font-normal leading-[0.95] drop-shadow-xs mt-0.5 sm:mt-1.5"
+                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs mt-1 sm:mt-2"
                 >
                   Phương
                 </span>
@@ -765,7 +765,7 @@ export default function WeddingMusicPlayer() {
                   }
                 `}</style>
                 <div
-                  className="relative w-28 h-24 sm:w-36 sm:h-32 md:w-44 md:h-36 flex items-center justify-center select-none"
+                  className="relative w-28 h-24 sm:w-36 sm:h-32 md:w-48 md:h-40 lg:w-56 lg:h-48 xl:w-64 xl:h-56 flex items-center justify-center select-none"
                   style={{
                     animation: "ringSpin3D 14s linear infinite",
                     transformOrigin: "center center",
@@ -965,17 +965,17 @@ export default function WeddingMusicPlayer() {
                 </div>
               </div>
 
-              {/* Right Column: Hà Phương */}
+              {/* Right Column: Hà Phương (Tăng 1.5 lần cho màn hình TV) */}
               <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left">
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#e25757] font-normal leading-[0.95] drop-shadow-xs"
+                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs"
                 >
                   Hà
                 </span>
                 <span
                   style={{ fontFamily: activeFont.fontFamily }}
-                  className="font-cursive text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#e25757] font-normal leading-[0.95] drop-shadow-xs mt-0.5 sm:mt-1.5"
+                  className="font-cursive text-5xl sm:text-[84px] md:text-[108px] lg:text-[136px] xl:text-[150px] text-[#e25757] font-normal leading-[0.88] drop-shadow-xs mt-1 sm:mt-2"
                 >
                   Phương
                 </span>
